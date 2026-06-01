@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Merhaba, ilk ders");
+        System.out.println("github deneme 2");
     }
 }
