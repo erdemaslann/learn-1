@@ -1,31 +1,21 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        String metin = "elma armut elma kirz armut elma";
 
-        // 1. Metni boşluklardan kelimelere böl
-        String[] kelimeler = metin.split(" ");
+        List<Integer> sayilar = List.of(1, 2, 3, 4, 5, 6);
 
-        // 2. Sayacı tutacak Map
-        Map<String, Integer> sayac = new HashMap<>();
+        int toplam = sayilar.stream()
+                .filter( sayi -> sayi % 2 == 0)
+                .map(sayi -> sayi * sayi)
+                .reduce(0, (a,b) -> a + b);
 
-        // 3. Her kelimeyi dolaş
-        for (String kelime : kelimeler) {
-            if (sayac.containsKey(kelime)) {
-                // varsa: mevcut sayıyı al, 1 ekle, geri koy
-                sayac.put(kelime, sayac.get(kelime) + 1);
-            } else {
-                // yoksa: ilk kez görüyoruz, 1 yaz
-                sayac.put(kelime, 1);
-            }
-        }
+                System.out.println(toplam);
 
-        // 4. Sonucu yazdır
-        for (Map.Entry<String, Integer> entry : sayac.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+
+
     }
 }
